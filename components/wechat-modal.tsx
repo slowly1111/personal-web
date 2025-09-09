@@ -2,7 +2,7 @@
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { X, Download, Phone, Mail, MessageCircle } from "lucide-react"
+import { X, Download, Phone, Mail, MessageCircle, Copy } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState } from "react"
 
@@ -20,6 +20,24 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const handleEmailSend = () => {
     window.location.href = 'mailto:2630115901@qq.com?subject=求职咨询&body=您好，我对您的简历很感兴趣，希望能进一步沟通。'
+  }
+
+  const handleCopyPhone = async () => {
+    try {
+      await navigator.clipboard.writeText('17774374619')
+      // 可以添加toast提示
+    } catch (err) {
+      console.error('复制失败:', err)
+    }
+  }
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('2630115901@qq.com')
+      // 可以添加toast提示
+    } catch (err) {
+      console.error('复制失败:', err)
+    }
   }
 
   const handleSaveWechatQR = () => {
@@ -115,20 +133,28 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <Phone className="w-16 h-16 mx-auto text-blue-500" />
                 <div>
                   <p className="text-lg font-medium">电话联系</p>
-                  <p className="text-xl font-mono font-semibold text-foreground mt-2 mb-2 select-all">
-                    17774374619
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    点击号码可复制，或点击下方按钮直接拨打电话
+                  <p className="text-xl font-bold text-foreground mt-2">17774374619</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    点击下方按钮直接拨打电话
                   </p>
                 </div>
-                <Button
-                  onClick={handlePhoneCall}
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
-                >
-                  <Phone className="mr-2 h-4 w-4" />
-                  拨打电话
-                </Button>
+                <div className="flex gap-2 justify-center">
+                  <Button
+                    onClick={handlePhoneCall}
+                    className="bg-blue-600 hover:bg-blue-700 text-white flex-1 max-w-32"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
+                    拨打电话
+                  </Button>
+                  <Button
+                    onClick={handleCopyPhone}
+                    variant="outline"
+                    className="flex-1 max-w-32"
+                  >
+                    <Copy className="mr-2 h-4 w-4" />
+                    复制号码
+                  </Button>
+                </div>
               </div>
             )}
 
@@ -137,20 +163,28 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <Mail className="w-16 h-16 mx-auto text-green-500" />
                 <div>
                   <p className="text-lg font-medium">邮箱联系</p>
-                  <p className="text-lg font-mono font-semibold text-foreground mt-2 mb-2 select-all break-all">
-                    2630115901@qq.com
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    点击邮箱可复制，或点击下方按钮发送邮件
+                  <p className="text-xl font-bold text-foreground mt-2">2630115901@qq.com</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    点击下方按钮发送邮件
                   </p>
                 </div>
-                <Button
-                  onClick={handleEmailSend}
-                  className="bg-green-600 hover:bg-green-700 text-white"
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  发送邮件
-                </Button>
+                <div className="flex gap-2 justify-center">
+                  <Button
+                    onClick={handleEmailSend}
+                    className="bg-green-600 hover:bg-green-700 text-white flex-1 max-w-32"
+                  >
+                    <Mail className="mr-2 h-4 w-4" />
+                    发送邮件
+                  </Button>
+                  <Button
+                    onClick={handleCopyEmail}
+                    variant="outline"
+                    className="flex-1 max-w-32"
+                  >
+                    <Copy className="mr-2 h-4 w-4" />
+                    复制邮箱
+                  </Button>
+                </div>
               </div>
             )}
           </div>

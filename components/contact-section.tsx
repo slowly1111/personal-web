@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { personalData } from "@/lib/data"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Download, Calendar, MessageCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Download, Calendar, MessageCircle, Copy } from "lucide-react"
 import { ContactModal } from "@/components/wechat-modal"
 import { useState } from "react"
 
@@ -27,6 +27,26 @@ export function ContactSection() {
 
   const handlePhoneClick = () => {
     window.location.href = `tel:${personalData.phone}`
+  }
+
+  const handleCopyPhone = async (e: React.MouseEvent) => {
+    e.stopPropagation()
+    try {
+      await navigator.clipboard.writeText(personalData.phone)
+      // 可以添加toast提示
+    } catch (err) {
+      console.error('复制失败:', err)
+    }
+  }
+
+  const handleCopyEmail = async (e: React.MouseEvent) => {
+    e.stopPropagation()
+    try {
+      await navigator.clipboard.writeText(personalData.email)
+      // 可以添加toast提示
+    } catch (err) {
+      console.error('复制失败:', err)
+    }
   }
 
   return (
@@ -64,7 +84,7 @@ export function ContactSection() {
 
                 <div className="space-y-6">
                   <motion.div
-                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer group"
                     onClick={handlePhoneClick}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -74,13 +94,21 @@ export function ContactSection() {
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-muted-foreground">手机号码</p>
-                      <p className="font-mono font-semibold text-foreground text-lg select-all">{personalData.phone}</p>
-                      <p className="text-xs text-muted-foreground mt-1">点击可复制或拨打</p>
+                      <p className="font-medium text-foreground text-lg">{personalData.phone}</p>
+                      <p className="text-xs text-muted-foreground mt-1">点击拨打 • 点击右侧复制</p>
                     </div>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={handleCopyPhone}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity p-2 h-8 w-8"
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
                   </motion.div>
 
                   <motion.div
-                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer group"
                     onClick={handleEmailClick}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -90,9 +118,17 @@ export function ContactSection() {
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-muted-foreground">邮箱地址</p>
-                      <p className="font-mono font-semibold text-foreground text-lg select-all break-all">{personalData.email}</p>
-                      <p className="text-xs text-muted-foreground mt-1">点击可复制或发送邮件</p>
+                      <p className="font-medium text-foreground text-lg">{personalData.email}</p>
+                      <p className="text-xs text-muted-foreground mt-1">点击发送邮件 • 点击右侧复制</p>
                     </div>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={handleCopyEmail}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity p-2 h-8 w-8"
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
                   </motion.div>
 
                   <div className="flex items-center gap-4 p-4 rounded-lg">
