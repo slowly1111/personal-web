@@ -72,9 +72,10 @@ export function ContactSection() {
                     <div className="p-2 bg-accent/10 rounded-lg">
                       <Phone className="h-5 w-5 text-accent" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <p className="text-sm text-muted-foreground">手机号码</p>
-                      <p className="font-medium text-foreground">{personalData.phone}</p>
+                      <p className="font-mono font-semibold text-foreground text-lg select-all">{personalData.phone}</p>
+                      <p className="text-xs text-muted-foreground mt-1">点击可复制或拨打</p>
                     </div>
                   </motion.div>
 
@@ -87,9 +88,10 @@ export function ContactSection() {
                     <div className="p-2 bg-primary/10 rounded-lg">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <p className="text-sm text-muted-foreground">邮箱地址</p>
-                      <p className="font-medium text-foreground">{personalData.email}</p>
+                      <p className="font-mono font-semibold text-foreground text-lg select-all break-all">{personalData.email}</p>
+                      <p className="text-xs text-muted-foreground mt-1">点击可复制或发送邮件</p>
                     </div>
                   </motion.div>
 

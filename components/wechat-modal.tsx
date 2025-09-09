@@ -115,8 +115,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <Phone className="w-16 h-16 mx-auto text-blue-500" />
                 <div>
                   <p className="text-lg font-medium">电话联系</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    点击下方按钮直接拨打电话
+                  <p className="text-xl font-mono font-semibold text-foreground mt-2 mb-2 select-all">
+                    17774374619
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    点击号码可复制，或点击下方按钮直接拨打电话
                   </p>
                 </div>
                 <Button
@@ -134,8 +137,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <Mail className="w-16 h-16 mx-auto text-green-500" />
                 <div>
                   <p className="text-lg font-medium">邮箱联系</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    点击下方按钮发送邮件
+                  <p className="text-lg font-mono font-semibold text-foreground mt-2 mb-2 select-all break-all">
+                    2630115901@qq.com
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    点击邮箱可复制，或点击下方按钮发送邮件
                   </p>
                 </div>
                 <Button
