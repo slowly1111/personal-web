@@ -1,7 +1,7 @@
 export const personalData = {
   // Basic Information
   name: "覃泽涛",
-  title: "AI 产品经理候选人",
+  title: "AI实践者",
   tagline: "用 AI 赋能产品，用热爱赋能自己",
   location: "湖南大学，长沙",
   phone: "17774374619",
@@ -82,23 +82,24 @@ export const personalData = {
   projects: [
     {
       title: "AI 驱动的智能售后系统",
-      description: "响应时间从 45 分钟优化到 8 分钟",
-      metrics: "响应效率提升 82%",
+      description: "",
+      metrics: "coze • agent",
+      features: [
+        "多角色 AI Agent（顾问 Bot / 技师 Bot）",
+        "智能知识库（多模态输入 & 自进化）",
+        "流程重构（用户自助 → 工单 → 工程师闭环）",
+        "响应提效 82%（45 分钟 → 8 分钟）"
+      ]
     },
     {
-      title: "秒杀频道卡片优化",
-      description: "通过数据驱动的设计优化提升转化",
-      metrics: "转化率 +3.64%",
-    },
-    {
-      title: "特惠大牌专栏",
-      description: "专栏设计与用户体验优化",
-      metrics: "转化率 +3.33%",
-    },
-    {
-      title: "Magic Music 生成模型",
-      description: "AI音乐生成算法产品化",
-      metrics: "生成时长 15.39s，符合度 88.01%",
+      title: "收藏夹阅读助手",
+      description: "",
+      metrics: "Coze • 飞书多维表格",
+      features: [
+        "自动转存（链接 → 飞书多维表格）",
+        "智能解析（解析摘要、作者、阅读状态等要点）",
+        "智能推荐（关键词→已收藏文章）"
+      ]
     },
   ],
 

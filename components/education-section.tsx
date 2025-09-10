@@ -17,7 +17,7 @@ export function EducationSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mb-4">教育背景</h2>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mb-4">教育经历</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             扎实的学术基础与优异的学业表现，为产品经理职业发展奠定坚实根基
           </p>
@@ -33,8 +33,8 @@ export function EducationSection() {
               viewport={{ once: true }}
             >
               <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <CardHeader className="bg-gradient-to-r from-primary/5 to-accent/5 pb-6">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <CardHeader className="bg-gradient-to-r from-primary/5 to-accent/5 py-3 flex items-center">
+                  <div className="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
                         <GraduationCap className="h-6 w-6 text-primary" />
@@ -44,7 +44,7 @@ export function EducationSection() {
                         <p className="text-lg text-muted-foreground font-medium">{edu.degree}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Calendar className="h-4 w-4" />
                       <span className="font-medium">{edu.period}</span>
                     </div>

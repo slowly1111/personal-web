@@ -44,7 +44,10 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl font-heading font-bold text-primary">覃泽涛</h1>
+            <div className="flex flex-col">
+              <h1 className="text-xl font-heading font-bold text-primary leading-tight">覃泽涛</h1>
+              <p className="text-sm font-medium text-muted-foreground leading-tight">Qinzetao</p>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
